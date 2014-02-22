@@ -16,7 +16,7 @@
   <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
   <script type=text/javascript>
     var map = L.mapbox.map('map', 'examples.map-9ijuk24y').setView([37.8102589045, -122.265385309], 12);
-    L.mapbox.featureLayer('/vacantlots.geojson').on('ready', function(e) {
+    L.mapbox.featureLayer('./vacantlots.geojson').on('ready', function(e) {
       var clusterGroup = new L.MarkerClusterGroup();
       e.target.eachLayer(function(layer) {
         clusterGroup.addLayer(layer);
