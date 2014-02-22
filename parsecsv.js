@@ -11,8 +11,8 @@ csv()
       name: row[7].replace(/\s+/, ' '),
       street: row[8].replace(/\s+/, ' '),
       category: row[18],
-      lat: parseFloat(row[20]),
-      lng: parseFloat(row[21])
+      lng: parseFloat(row[20]),
+      lat: parseFloat(row[21])
     };
     if(index > 0 && index < 300) {
       vacantLots.push(lot);
