@@ -12,7 +12,9 @@ csv()
       street: row[8].replace(/\s+/, ' '),
       category: row[18],
       lng: parseFloat(row[20]),
-      lat: parseFloat(row[21])
+      lat: parseFloat(row[21]),
+      acres: parseFloat(row[25]),
+      sqFt: parseFloat(row[26])
     };
     if(index > 0) {
       vacantLots.push(lot);
