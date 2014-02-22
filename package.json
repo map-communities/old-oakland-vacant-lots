@@ -4,7 +4,8 @@
   "description": "Displaying oakland city farm share data",
   "main": "index.js",
   "dependencies": {
-    "csv": "~0.3.7"
+    "csv": "^0.3.7",
+    "geojson": "^0.1.5"
   },
   "devDependencies": {},
   "scripts": {
