@@ -19,6 +19,9 @@
     L.mapbox.featureLayer('/vacantlots.geojson').on('ready', function(e) {
       var clusterGroup = new L.MarkerClusterGroup();
       e.target.eachLayer(function(layer) {
+        var props = layer.feature.properties;
+        var content = '<h1>' + props.street + '</h1>';
+        layer.bindPopup(content);
         clusterGroup.addLayer(layer);
       });
       map.addLayer(clusterGroup);
