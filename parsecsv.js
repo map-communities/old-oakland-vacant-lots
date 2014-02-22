@@ -14,7 +14,7 @@ csv()
       lat: row[20],
       lng: row[21]
     };
-    if(index > 0) {
+    if(index > 0 && index < 300) {
       vacantLots.push(lot);
     }
   })
