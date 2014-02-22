@@ -20,6 +20,6 @@ csv()
   })
   .on('end', function() {
     geojson.parse(vacantLots, {Point: ['lat', 'lng']}, function(geojson) {
-      fs.writeFileSync('vacantlots.geojson', JSON.stringify(geojson));
+      fs.writeFileSync('vacantlots.geojson', JSON.stringify(geojson, null, '  '));
     });
   });
