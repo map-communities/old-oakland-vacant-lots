@@ -16,20 +16,13 @@
   <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
   <script type=text/javascript>
     var map = L.mapbox.map('map', 'examples.map-9ijuk24y').setView([37.8102589045, -122.265385309], 12);
-    var markers = new L.MarkerClusterGroup();
-    $.getJSON('/vacantlots.geojson', function(vacantLots) {
-      for(var i = 0; i < vacantLots.features.length; i++) {
-        var feature = vacantLots.features[i];
-        var coordinates = feature.geometry.coordinates;
-        var marker = L.marker(new L.LatLng(coordinates[0], coordinates[1]), {
-            icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
-            title: feature.properties.street
-          });
-        marker.bindPopup(feature.properties.street);
-        markers.addLayer(marker);
-      }
+    L.mapbox.featureLayer('/vacantlots.geojson').on('ready', function(e) {
+      var clusterGroup = new L.MarkerClusterGroup();
+      e.target.eachLayer(function(layer) {
+        clusterGroup.addLayer(layer);
+      });
+      map.addLayer(clusterGroup);
     });
-    map.addLayer(markers);
   </script>
 </body>
 </html>
