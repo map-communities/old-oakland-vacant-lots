@@ -1,14 +1,21 @@
 <html>
 <head>
-   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
-   <style type="text/css">
-      #map {
-        height: 300px;
-      }
-   </style>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+  <style type="text/css">
+     #map {
+       height: 100%;
+     }
+  </style>
 </head>
 <body>
   <div id="map"></div>
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+  <script src='https://code.jquery.com/jquery-1.10.2.min.js'></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+  <script type=text/javascript>
+    var map = L.mapbox.map('map', 'examples.map-9ijuk24y').setView([37.8102589045, -122.265385309], 12);
+    $.getJSON('vacantlots.geojson', function(data) {
+      console.log(data);
+    });
+  </script>
 </body>
 </html>
