@@ -14,7 +14,7 @@ csv()
       lng: parseFloat(row[20]),
       lat: parseFloat(row[21])
     };
-    if(index > 0 && index < 300) {
+    if(index > 0) {
       vacantLots.push(lot);
     }
   })
