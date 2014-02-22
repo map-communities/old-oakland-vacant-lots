@@ -1,6 +1,8 @@
 <html>
 <head>
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+  <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+  <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+  <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
   <style type="text/css">
      #map {
        height: 100%;
@@ -9,13 +11,16 @@
 </head>
 <body>
   <div id="map"></div>
-  <script src='https://code.jquery.com/jquery-1.10.2.min.js'></script>
-  <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+  <script src='//code.jquery.com/jquery-1.10.2.min.js'></script>
+  <script src='//api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+  <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
   <script type=text/javascript>
     var map = L.mapbox.map('map', 'examples.map-9ijuk24y').setView([37.8102589045, -122.265385309], 12);
-    $.getJSON('vacantlots.geojson', function(data) {
-      console.log(data);
-    });
+    //var markers = L.mapbox.
+    //$.getJSON('/vacantlots.geojson', function(vacantLots) {
+
+    //});
+    var featureLayer = L.mapbox.featureLayer().loadURL('/vacantlots.geojson').addTo(map);
   </script>
 </body>
 </html>
