@@ -12,3 +12,5 @@ Easiest way is to start an http file server (like the following if you have pyth
 ```bash
 python -m SimpleHTTPServer
 ```
+
+...and then open `localhost:8000`
