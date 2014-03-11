@@ -14,3 +14,7 @@ python -m SimpleHTTPServer
 ```
 
 ...and then open `localhost:8000`
+
+# how to set up a community garden
+
+- [Community Garden Start-Up Guide](http://celosangeles.ucdavis.edu/files/97080.pdf) from the UC Cooperative Extension
