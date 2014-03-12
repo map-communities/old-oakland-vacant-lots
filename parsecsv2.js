@@ -32,21 +32,24 @@ fs.readFile(__dirname + '/vacants.csv', { encoding: 'utf8' }, function(err, rows
 //   EVERY property from the csv
   var point;
   lots.forEach(function(lot) {
-    var lat = lot.lat
-      , lng = lot.lng;
+    var lat = parseFloat(lot.lat)
+      , lng = parseFloat(lot.lng);
     delete lot.lat;
     delete lot.lng;
 
-    point = {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [ lot.lng, lot.lat ]
-      },
-      properties: lot
-    };
+    if (!isNaN(lat) && !isNaN(lng)) {
+      point = {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [ lng, lat ]
+        },
+        properties: lot
+      };
 
-    geojson.features.push(point);
+      geojson.features.push(point);
+    }
+
   });
 
 // write geojson to file
