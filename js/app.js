@@ -1,6 +1,7 @@
-var map = L.mapbox.map('map', 'examples.map-9ijuk24y').setView([37.8102589045, -122.265385309], 12);
+var map = L.mapbox.map('map', 'examples.map-9ijuk24y').setView([37.8102589045, -122.265385309], 12)
+  , featureLayer;
 
-L.mapbox.featureLayer('./vacantlots.geojson').on('ready', function(e) {
+/* L.mapbox.featureLayer('./vacantlots2.json').on('ready', function(e) {
   var clusterGroup = new L.MarkerClusterGroup();
   e.target.eachLayer(function(layer) {
     var props = layer.feature.properties;
@@ -13,4 +14,14 @@ L.mapbox.featureLayer('./vacantlots.geojson').on('ready', function(e) {
     clusterGroup.addLayer(layer);
   });
   map.addLayer(clusterGroup);
+}); */
+
+$(document).ready(function() {
+  $.getJSON('/vacantlots.json', function(geojson) {
+    featureLayer = L.mapbox.featureLayer(geojson);
+
+    featureLayer.on('click', function(e) {
+      debugger;
+    });
+  });
 });

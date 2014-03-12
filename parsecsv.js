@@ -7,6 +7,7 @@ csv()
   .from
   .stream(fs.createReadStream('./vacants.csv'))
   .transform(function(row, index) {
+    debugger;
     var lot = {
       name: row[7].replace(/\s+/, ' '),
       street: row[8].replace(/\s+/, ' '),
