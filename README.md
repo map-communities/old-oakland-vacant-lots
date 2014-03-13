@@ -7,13 +7,11 @@ It's time to stand up a version of this platform in Oakland. Data from the Alame
 
 # running locally (for now)
 
-Easiest way is to start an http file server (like the following if you have python on your machine):
-
 ```bash
-python -m SimpleHTTPServer
+npm start
 ```
 
-...and then open `localhost:8000`
+...and then open `localhost:5000`
 
 # how to set up a community garden
 
