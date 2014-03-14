@@ -3,7 +3,12 @@ var map = L.mapbox.map('map', 'examples.map-9ijuk24y').setView([37.8102589045, -
 var popup = L.popup();
 
 $(document).ready(function() {
-  $.getJSON('/vacantlots.json', function(geojson) {
+  $.getJSON('/ajax/vacantlots', function(data) {
+    var geojson = {
+      type: 'FeatureCollection',
+      features: data
+    };
+
     featureLayer = L.mapbox.featureLayer(geojson)
       .on('click', function(e) {
         var props = e.layer.feature.properties;
