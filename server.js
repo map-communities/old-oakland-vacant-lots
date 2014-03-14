@@ -16,20 +16,23 @@ mongoclient.open(function(err, mongoclient) {
 
   var db = mongoclient.db('app22981599');
   db.authenticate('imauser', 'ldt4ieb72o684p4', function(err, data) {
-    if (err) console.log('authentication error - ' + err);
-    if (data) console.log('authenticated! - ' + data);
+    if (err) console.log('mongodb authentication error - ' + err);
+    if (data) console.log('mongodb authenticated! - ' + data);
   });
 
   // collections
   var lots = db.collection('lots');
+
+  app.get('/ajax/vacantlots', function(req, res) {
+    lots.find().toArray(function(err, docs) {
+      if (err) console.log('mongodb error - '+err);
+      res.json(docs);
+    });
+  });
+
+  
 });
 
-// cache vacant lots in memory until a db is implemented
-var vacantlots = fs.readFileSync(__dirname + '/vacantlots2.json', { encoding: 'utf8' });
-app.get('/vacantlots.json', function(req, res) {
-  res.type('json');
-  res.send(vacantlots);
-});
 
 // start listening
 app.listen('5000', function() {
