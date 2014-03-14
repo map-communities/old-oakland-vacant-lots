@@ -7,7 +7,7 @@ The Oakland Community Land Trust (OakCLT) is partnering with a group of voluntee
 
 It's time to stand up a version of this platform in Oakland. Data from the Alameda County Assessor can likely serve as the main source for parcel info.
 
-# running locally (for now)
+# running locally
 
 ```bash
 npm start
