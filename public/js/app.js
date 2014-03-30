@@ -1,6 +1,6 @@
 var map = L.mapbox.map('map', 'examples.map-9ijuk24y').setView([37.8102589045, -122.265385309], 12)
   , featureLayer;
-var popup = L.popup();
+var popup = L.popup({offset: L.point(0, -30)});
 
 $(document).ready(function() {
   $.getJSON('/ajax/vacantlots', function(data) {
